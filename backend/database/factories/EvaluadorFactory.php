@@ -17,7 +17,11 @@ class EvaluadorFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nombres' =>fake()->name(),
+            'apellidos' =>fake()->lastName(),
+            'direccion'=>fake()->address(),
+            'email'=>fake()->email(),
+            'password'=>fake()->password()
         ];
     }
 }

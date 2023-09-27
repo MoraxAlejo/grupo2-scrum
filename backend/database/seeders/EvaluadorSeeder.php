@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Evaluador;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,6 +15,7 @@ class EvaluadorSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Evaluador::factory(10)->create();
+        
     }
 }
