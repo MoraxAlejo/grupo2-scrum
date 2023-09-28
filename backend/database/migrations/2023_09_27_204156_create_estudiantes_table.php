@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('direccion');
             $table->string('email');
             $table->string('password');
+            $table->integer('grupo');
             $table->timestamps();
         });
     }

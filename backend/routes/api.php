@@ -50,8 +50,8 @@ Route::controller(EstudianteController::class)->group(function () {
 Route::controller(IndicadorController::class)->group(function () {
     Route::get('/indicadores', 'index');
     Route::get('/indicadores/{id}', 'show');
-    Route::post('/indicadores', 'create');
-    Route::put('/indicadores/{id}', 'update');
+    Route::post('/indicadores', 'store');
+    Route::put('/indicadores/{id}', 'edit');
     Route::delete('/indicadores/{id}', 'destroy');
 });
 
