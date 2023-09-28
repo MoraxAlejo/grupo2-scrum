@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Evaluador;
 use Illuminate\Http\Request;
 
 class EstudianteController extends Controller
@@ -23,7 +24,7 @@ class EstudianteController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**

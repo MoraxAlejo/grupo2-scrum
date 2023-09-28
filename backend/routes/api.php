@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\EvaluadorController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +18,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::controller(EvaluadorController::class)->group(function () {
+    Route::get('/evaluador', 'index');
+    Route::get('/evaluador/{id}', 'show');
+    Route::post('/evaluador', 'create');  
+    Route::put('/evaluador/{id}', 'update');
+    Route::delete('/evaluador/{id}', 'destroy');
 });
