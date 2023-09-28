@@ -4,11 +4,9 @@ use App\Http\Controllers\EvaluacionController;
 
 
 use App\Http\Controllers\EstudianteController;
-
-
+use App\Http\Controllers\EvaluadorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\EvaluadorController;
 
 
 /*
