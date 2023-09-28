@@ -1,14 +1,14 @@
 <?php
 
+use App\Http\Controllers\DetalleController;
 use App\Http\Controllers\EvaluacionController;
 
 
 use App\Http\Controllers\EstudianteController;
-
-
+use App\Http\Controllers\IndicadorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\EvaluadorController;
+use App\Http\Controllers\EvaluadorController;
 
 
 /*
@@ -45,10 +45,28 @@ Route::controller(EvaluacionController::class)->group(function () {
 
 Route::controller(EstudianteController::class)->group(function () {
     Route::get('/estudiantes', 'index');
-    Route::get('/estudiante/{id}', 'show');
-    Route::post('/estudiante', 'create');  
-    Route::put('/estudiante/{id}', 'update');
-    Route::delete('/estudiante/{id}', 'destroy');
+    Route::get('/estudiantes/{id}', 'show');
+    Route::post('/estudiantes', 'create');  
+    Route::put('/estudiantes/{id}', 'update');
+    Route::delete('/estudiantes/{id}', 'destroy');
+
+});
+
+Route::controller(IndicadorController::class)->group(function () {
+    Route::get('/indicadores', 'index');
+    Route::get('/indicadores/{id}', 'show');
+    Route::post('/indicadores', 'create');  
+    Route::put('/indicadores/{id}', 'update');
+    Route::delete('/indicadores/{id}', 'destroy');
+
+});
+
+Route::controller(DetalleController::class)->group(function () {
+    Route::get('/detalles', 'index');
+    Route::get('/detalles/{id}', 'show');
+    Route::post('/detalles', 'create');  
+    Route::put('/detalles/{id}', 'update');
+    Route::delete('/detalles/{id}', 'destroy');
 
 });
 
