@@ -19,7 +19,6 @@ class DetalleController extends Controller
 
 
         $detalle = new Detalle_evaluacion();
-        $detalle->fecha_evaluacion = $request->fecha_evaluacion;
         $detalle->nombre_evaluacion = $request->nombre_evaluacion;
         $detalle->descripcion = $request->descripcion;
         $detalle->id_evaluacion = $request->id_evaluacion;
@@ -37,7 +36,6 @@ class DetalleController extends Controller
     public function update($id, Request $request)
     {
         $detalle = Detalle_evaluacion::find($id);
-        $detalle->fecha_evaluacion = $request->fecha_evaluacion;
         $detalle->nombre_evaluacion = $request->nombre_evaluacion;
         $detalle->descripcion = $request->descripcion;
         $detalle->id_evaluacion = $request->id_evaluacion;
