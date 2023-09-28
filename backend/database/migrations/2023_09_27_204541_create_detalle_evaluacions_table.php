@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('detalle_evaluacions', function (Blueprint $table) {
             $table->id();
-            $table->date('fecha_evaluacion');
             $table->string('nombre_evaluacion');
             $table->string('descripcion');
             $table->foreignId('id_evaluacion')->constrained(table: 'evaluacions')->onUpdate('cascade')->onDelete('cascade');

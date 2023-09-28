@@ -21,7 +21,10 @@ class EstudianteFactory extends Factory
             'apellidos' =>fake()->lastName(),
             'direccion'=>fake()->address(),
             'email'=>fake()->email(),
-            'password'=>fake()->password()
+            'password'=>fake()->password(),
+            'grupo' =>fake()->randomNumber(1, 2, 3, 4,),
+
+          
         ];
     }
 }

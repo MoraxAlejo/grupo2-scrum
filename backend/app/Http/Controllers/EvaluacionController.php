@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Evaluacion;
+use Exception;
 use Illuminate\Http\Request;
 
 class EvaluacionController extends Controller
@@ -13,7 +15,8 @@ class EvaluacionController extends Controller
      */
     public function index()
     {
-        //
+        $evaluacion = new Evaluacion();
+        return $evaluacion->all();
     }
 
     /**
@@ -34,7 +37,22 @@ class EvaluacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+
+
+            $evaluacion = new Evaluacion();
+
+            $evaluacion->logica = $request->logica;
+            $evaluacion->razonamiento = $request->razonamiento;
+            $evaluacion->aptitud = $request->aptitud;
+            $evaluacion->id_estudiante = $request->id_estudiante;
+            $evaluacion->id_evaluador = $request->id_evaluador;
+
+            $evaluacion->save();
+            return  $evaluacion;
+        } catch (Exception $e) {
+            return json_encode($e);
+        }
     }
 
     /**
@@ -45,7 +63,8 @@ class EvaluacionController extends Controller
      */
     public function show($id)
     {
-        //
+        $evaluacion = new Evaluacion();
+        return $evaluacion->find($id);
     }
 
     /**
@@ -54,9 +73,24 @@ class EvaluacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, Request $request)
     {
-        //
+        try {
+
+            // $request->validate(Docente::rules(), ['nombre.required' => 'El nombre es requerido']);
+            $evaluacion = Evaluacion::find($id);
+
+            $evaluacion->logica = $request->logica;
+            $evaluacion->razonamiento = $request->razonamiento;
+            $evaluacion->aptitud = $request->aptitud;
+            $evaluacion->id_estudiante = $request->id_estudiante;
+            $evaluacion->id_evaluador = $request->id_evaluador;
+
+            $evaluacion->save();
+            return  $evaluacion;
+        } catch (Exception $e) {
+            return json_encode($e);
+        }
     }
 
     /**
@@ -79,6 +113,8 @@ class EvaluacionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $evaluacion = Evaluacion::find($id);
+        $evaluacion->delete();
+        return $evaluacion;
     }
 }

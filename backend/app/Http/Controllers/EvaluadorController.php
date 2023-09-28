@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Evaluador;
 use Illuminate\Http\Request;
 
 class EvaluadorController extends Controller
@@ -13,7 +14,8 @@ class EvaluadorController extends Controller
      */
     public function index()
     {
-        //
+        $evaluador = new Evaluador();
+        return $evaluador->all(); 
     }
 
     /**
@@ -21,9 +23,16 @@ class EvaluadorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $evaluador = new Evaluador();
+        $evaluador->nombres = $request->nombres;
+        $evaluador->apellidos = $request->apellidos;
+        $evaluador->direccion = $request->direccion;
+        $evaluador->email = $request->email;
+        $evaluador->password = $request->password;
+        $evaluador->save();
+        return $evaluador;
     }
 
     /**
@@ -32,7 +41,7 @@ class EvaluadorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
         //
     }
@@ -45,7 +54,8 @@ class EvaluadorController extends Controller
      */
     public function show($id)
     {
-        //
+        $evaluador = new Evaluador();
+        return $evaluador->find($id);
     }
 
     /**
@@ -66,9 +76,16 @@ class EvaluadorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id, Request $request)
     {
-        //
+        $evaluador = Evaluador::find($id);
+        $evaluador->nombres = $request->nombres;
+        $evaluador->apellidos = $request->apellidos;
+        $evaluador->direccion = $request->direccion;
+        $evaluador->email = $request->email;
+        $evaluador->password = $request->password;
+        $evaluador->save();
+        return $evaluador;
     }
 
     /**
@@ -79,6 +96,8 @@ class EvaluadorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $evaluador = Evaluador::find($id);
+        $evaluador->delete();
+        return $evaluador;
     }
 }
