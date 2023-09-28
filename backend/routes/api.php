@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Controllers\EvaluacionController;
+
+
+use App\Http\Controllers\EstudianteController;
+
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\EvaluadorController;
@@ -27,3 +33,22 @@ Route::controller(EvaluadorController::class)->group(function () {
     Route::put('/evaluador/{id}', 'update');
     Route::delete('/evaluador/{id}', 'destroy');
 });
+
+Route::controller(EvaluacionController::class)->group(function () {
+    Route::get('/evaluacion', 'index');
+    Route::get('/evaluacion/{id}', 'show');
+    Route::post('/evaluacion', 'store');
+    Route::put('/evaluacion/{id}', 'edit');
+    Route::delete('/evaluacion/{id}', 'destroy');
+   
+});
+
+Route::controller(EstudianteController::class)->group(function () {
+    Route::get('/estudiantes', 'index');
+    Route::get('/estudiante/{id}', 'show');
+    Route::post('/estudiante', 'create');  
+    Route::put('/estudiante/{id}', 'update');
+    Route::delete('/estudiante/{id}', 'destroy');
+
+});
+
