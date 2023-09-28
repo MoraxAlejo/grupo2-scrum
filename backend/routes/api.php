@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\EvaluacionController;
+
+use App\Http\Controllers\EstudianteController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
 Route::controller(EvaluacionController::class)->group(function () {
     Route::get('/evaluacion', 'index');
     Route::get('/evaluacion/{id}', 'show');
@@ -25,4 +29,13 @@ Route::controller(EvaluacionController::class)->group(function () {
     Route::put('/evaluacion/{id}', 'edit');
     Route::delete('/evaluacion/{id}', 'destroy');
    
+});
+
+Route::controller(EstudianteController::class)->group(function () {
+    Route::get('/estudiantes', 'index');
+    Route::get('/estudiante/{id}', 'show');
+    Route::post('/estudiante', 'create');  
+    Route::put('/estudiante/{id}', 'update');
+    Route::delete('/estudiante/{id}', 'destroy');
+
 });
