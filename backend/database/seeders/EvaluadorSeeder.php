@@ -16,6 +16,5 @@ class EvaluadorSeeder extends Seeder
     public function run()
     {
         Evaluador::factory(10)->create();
-        
     }
 }
