@@ -1,9 +1,16 @@
+import Table from "./Table";
 
 
 export default function Cursos() {
     return (
         <div>
-            Cursos
+          <Table/>
         </div>
+        
+        
+        
     )
+
+    
 }
+
