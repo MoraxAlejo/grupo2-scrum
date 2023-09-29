@@ -1,10 +1,30 @@
-import { useState } from "react";
+
+import { useState} from "react";
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import "/css/bg.css"
 import Cursos from "./Cursos";
 import New from "./New";
 
 export default function Dashboard() {
+//     const [datos, setDatos] = useState();
+
+//   useEffect(() => {
+//     const promesa = fetch("http://127.0.0.1:8000/api/estudiantes")
+//     Promise.all([promesa]).then(async (values) => {
+//       const data = await values[0].json();
+//       if (data.cod === '404') {
+//         alert(data.message);
+//       } else {
+//         setDatos(data);
+//       }
+//     })
+//   }, []);
+
+
+//   console.log(datos)
+    
+
+  
     const [isDrawerOpen, setIsDrawerOpen] = useState(true);
     const [openMenu, setOpenMenu] = useState(true);
 
@@ -82,7 +102,7 @@ export default function Dashboard() {
                             </div>}
                         />
 
-                        <Route path="/cursos" element={<Cursos />} />
+                        <Route path="/cursos" element={<Cursos  />} />
                         <Route path="/new" element={<New />} />
                     </Routes>
                 </section>
