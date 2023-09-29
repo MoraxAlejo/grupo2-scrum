@@ -22,7 +22,8 @@ class EstudianteFactory extends Factory
             'direccion'=>fake()->address(),
             'email'=>fake()->email(),
             'password'=>fake()->password(),
-            'grupo' =>fake()->randomNumber(1, 2, 3, 4,),
+            'grupo' => fake()->numberBetween(1, 4),
+
 
           
         ];
