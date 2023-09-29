@@ -2,11 +2,11 @@
 
 use App\Http\Controllers\DetalleController;
 use App\Http\Controllers\EstudianteController;
-use App\Http\Controllers\EvaluacionController;
 use App\Http\Controllers\EvaluadorController;
-use App\Http\Controllers\IndicadorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IndicadorController;
+
 
 /*
 |--------------------------------------------------------------------------
