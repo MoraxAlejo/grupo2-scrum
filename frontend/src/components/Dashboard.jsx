@@ -6,33 +6,30 @@ import Cursos from "./Cursos";
 import New from "./New";
 
 export default function Dashboard() {
+    // llamada a la api
     const [datos, setDatos] = useState();
+    useEffect(() => {
+        const promesa = fetch("http://127.0.0.1:8000/api/estudiantes")
+        Promise.all([promesa]).then(async (values) => {
+            const data = await values[0].json();
+            if (data.cod === '404') {
+                alert(data.message);
+            } else {
+                setDatos(data);
+            }
+        })
+    }, []);
 
-  useEffect(() => {
-    const promesa = fetch("http://127.0.0.1:8000/api/estudiantes")
-    Promise.all([promesa]).then(async (values) => {
-      const data = await values[0].json();
-      if (data.cod === '404') {
-        alert(data.message);
-      } else {
-        setDatos(data);
-      }
-    })
-  }, []);
 
-
-  console.log(datos)
-    
-
-  
+    //funcion para abrir el menu del logout 
     const [isDrawerOpen, setIsDrawerOpen] = useState(true);
-    const [openMenu, setOpenMenu] = useState(true);
-
     const toggleDrawer = () => {
         setIsDrawerOpen(!isDrawerOpen);
     };
     const drawerClass = isDrawerOpen ? 'hidden' : '';
 
+    //funcion para abrir el menu  
+    const [openMenu, setOpenMenu] = useState(true);
     const toggleMenu = () => {
         setOpenMenu(!openMenu);
     };
@@ -102,7 +99,7 @@ export default function Dashboard() {
                             </div>}
                         />
 
-                        <Route path="/cursos" element={<Cursos datos = {datos} />} />
+                        <Route path="/cursos" element={<Cursos datos={datos} />} />
                         <Route path="/new" element={<New />} />
                     </Routes>
                 </section>
