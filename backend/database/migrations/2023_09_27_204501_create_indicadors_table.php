@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('asistencia_Clase');
             $table->integer('trabajos_Presentados');
-            $table->integer('evalucaciones');
+            $table->integer('evaluaciones');
             $table->timestamps();
         });
     }

@@ -39,7 +39,7 @@ class EvaluacionController extends Controller
     {
         try {
 
-            // $request->validate(Docente::rules(), ['nombre.required' => 'El nombre es requerido']);
+
             $evaluacion = new Evaluacion();
 
             $evaluacion->logica = $request->logica;
