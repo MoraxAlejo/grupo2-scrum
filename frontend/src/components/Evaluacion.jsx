@@ -55,7 +55,7 @@ export default function New() {
                         </div>
                         <div className="input_container">
                             <label className="input_label">Razonamiento:</label>
-                            <input ref={razonamiento} className="input_field" type="number" name="proyectos" title="Inpit title" placeholder="Cantidad de proyectos entregados" />
+                            <input ref={razonamiento} className="input_field" type="text" name="proyectos" title="Inpit title" placeholder="Cantidad de proyectos entregados" />
                         </div>
                         <div className="input_container">
                             <label className="input_label">Aptitud:</label>
