@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('indicadors', function (Blueprint $table) {
             $table->id();
+            $table->string('logica');
+            $table->string('razonamiento');
+            $table->string('aptitud');
             $table->integer('asistencia_Clase');
             $table->integer('trabajos_Presentados');
             $table->integer('evaluaciones');

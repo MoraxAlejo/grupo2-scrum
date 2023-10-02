@@ -23,6 +23,7 @@ export async function findOne(id) {
 export async function create(studentData) {
   try {
     return await scrumApi.post("/estudiantes", studentData);
+    
   } catch (error) {
     console.log(error);
   }
