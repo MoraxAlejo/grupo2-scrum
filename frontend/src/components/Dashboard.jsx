@@ -1,9 +1,10 @@
 "use client"
-import {useEffect ,useState} from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import "/css/bg.css"
 import Cursos from "./Cursos";
 import New from "./New";
+import Evaluacion from "./Evaluacion";
 
 export default function Dashboard() {
     // llamada a la api
@@ -85,6 +86,14 @@ export default function Dashboard() {
                                 element={
                                     <h1 className="text-4xl">Agregar Estudiante</h1>
                                 }
+
+                            />
+
+                            <Route
+                                path="/cursos/evaluacion"
+                                element={
+                                    <h1 className="text-4xl">Evaluacion</h1>
+                                }
                             />
                         </Routes>
                         <button onClick={toggleDrawer} className="cursor-pointer"><img width="35" height="35" src="https://img.icons8.com/ios-filled/50/menu--v6.png" alt="menu--v6" /></button>
@@ -100,6 +109,7 @@ export default function Dashboard() {
                             </div>}
                         />
                         <Route path="/cursos" element={<Cursos datos={datos} />} />
+                        <Route path="/cursos/evaluacion" element={<Evaluacion />} />
                         <Route path="/new" element={<New />} />
                     </Routes>
                 </section>

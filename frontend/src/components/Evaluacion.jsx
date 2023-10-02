@@ -27,4 +27,3 @@ export default function Evaluacion() {
         </div>
     )
 }
-

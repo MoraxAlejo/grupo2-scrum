@@ -1,6 +1,9 @@
 
 "use clients"
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
+
 
 export default function Cursos({ datos }) {
   const [dataEstudiante, setDataEstudiante] = useState([]);
@@ -77,9 +80,9 @@ export default function Cursos({ datos }) {
                 <td className="px-6 py-4">{el.grupo}</td>
                 <td className="px-6 py-4">
                   <div>
-                    <button className="bg-transparent border border-white text-white font-bold py-0.5 px-1 rounded-full text-xs hover:bg-white hover:text-blue-500">
-                      Evaluar
-                    </button>
+                    <Link to={"/cursos/evaluacion"}> <button  className="bg-transparent border border-white text-white font-bold py-0.5 px-1 rounded-full text-xs hover:bg-white hover:text-blue-500">
+                      Evaluar 
+                    </button></Link>
                   </div>
                 </td>
               </tr>
@@ -160,8 +163,7 @@ export default function Cursos({ datos }) {
             </li>
           </ul>
         </nav>
-         
-      </div>
+      </div> 
     </>
   );
 }
