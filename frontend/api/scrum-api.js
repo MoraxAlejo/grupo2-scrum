@@ -27,3 +27,15 @@ export async function create(studentData) {
     console.log(error);
   }
 }
+
+const evalApi = axios.create({
+  baseURL: "http://localhost:8000/api",
+});
+
+export async function createEval (evalData) {
+  try {
+    return await evalApi.post("/evaluacion", evalData);
+  } catch (error) {
+    console.log(error);
+  }
+}
