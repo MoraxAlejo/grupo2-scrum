@@ -7,12 +7,26 @@ export default function Cursos({ datos }) {
     setDataEstudiante(datos); // Asigna los datos de la API a dataEstudiante
   }, [datos]);
 
-  // Filtra los estudiantes del grupo 1
-  const estudiantesGrupo1 = dataEstudiante.filter((estudiante) => estudiante.grupo === 1);
-  console.log(estudiantesGrupo1);
+
+  const [grupoSeleccionado, setGrupoSeleccionado] = useState('1');
+
+  const estudiantesGrupo1 = dataEstudiante.filter((estudiante) => estudiante.grupo === parseInt(grupoSeleccionado));
+
+
 
   return (
+    <>
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+   <h2>Grupo</h2> <select name="grupo" id="grupo" value={grupoSeleccionado} onChange={(e) => setGrupoSeleccionado(e.target.value)}
+>
+  {[...new Set(dataEstudiante.map((estudiante) => estudiante.grupo))]
+    .sort((a, b) => parseInt(a) - parseInt(b))
+    .map((grupo) => (
+      <option key={grupo} value={grupo}>
+        {grupo}
+      </option>
+    ))}
+</select>
     <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
       <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
         <tr>
@@ -26,6 +40,7 @@ export default function Cursos({ datos }) {
               <label htmlFor="checkbox-all-search" className="sr-only">
                 checkbox
               </label>
+ 
             </div>
           </th>
 
@@ -166,6 +181,7 @@ export default function Cursos({ datos }) {
       </ul>
     </nav>
  </div>
+</>
   );
 }
 
