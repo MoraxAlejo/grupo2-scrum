@@ -26,6 +26,7 @@ class EstudianteController extends Controller
         $estudiante->direccion = $request->direccion;
         $estudiante->email = $request->email;
         $estudiante->password = $request->password;
+        $estudiante->grupo = $request->grupo;
         $estudiante->save();
         return $estudiante;
     }
@@ -44,6 +45,7 @@ class EstudianteController extends Controller
         $estudiante->direccion = $request->direccion;
         $estudiante->email = $request->email;
         $estudiante->password = $request->password;
+        $estudiante->grupo = $request->grupo;
         $estudiante->save();
         return $estudiante;
     }
