@@ -1,10 +1,13 @@
 
+"use clients"
 import { useState, useEffect } from 'react';
 export default function Cursos({ datos }) {
   const [dataEstudiante, setDataEstudiante] = useState([]);
 
   useEffect(() => {
-    setDataEstudiante(datos); // Asigna los datos de la API a dataEstudiante
+    if (datos && datos.length > 0) {
+      setDataEstudiante(datos);
+    }
   }, [datos]);
 
 
