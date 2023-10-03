@@ -37,9 +37,9 @@ export default function Dashboard() {
     };
 
     return (
-        <div className="h-screen flex ">
+        <div className="h-screen flex relative ">
             <BrowserRouter>
-                <section className={`gradient-bg h-screen w-[20%] flex flex-col items-center gap-16 pt-16 relative ${openMenu ? '' : 'hidden'}`}>
+                <section className={`gradient-bg h-screen w-[20%] flex flex-col items-center gap-16 pt-16 fixed left-0 ${openMenu ? '' : 'hidden'}`}>
                     <div className=" flex flex-col justify-center items-center gap-4">
                         <img width="80" height="80" src="https://img.icons8.com/cotton/80/user-male-circle.png" alt="user-male-circle" />
                         <h1 className="text-white text-4xl">Evaluador</h1>
@@ -65,8 +65,8 @@ export default function Dashboard() {
                         </NavLink>
                     </ul>
                 </section>
-                <section className={`bg-slate-100 px-10 pt-7 ${openMenu ? 'w-[85%]' : 'w-full'} ${openMenu ? '' : 'px-28'}`}>
-                    <button id="closemenu" onClick={toggleMenu} className="cursor-pointer absolute left-2 top-0"><img src={`${openMenu ? 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABAElEQVR4nO3YMStGYRQH8OOKgYFJycxnYTHL++7KB6BMisHHsChmZVVGZWSwGH0FCT8p5brZ3nrfznV+9ay3/6nnPs85T0QppZRSyuRhBac4RhOZYBmPfqxHFljCfSv8C1YjAyzirhX+FZuRARZw2wr/hq3IAPO4aYV/xzAywByuW+E/sBMZYBZXnfC7kQFmcOm3vcgA0zjvhD+IROHPOuEPIwM03+1B2xP2x7SGmBqlgK8PTNpglAIG2Qto/thCzzgZ09oeaQul/4k7RVykPEY7t3DOi6wXrUQvmrletNO9GGh6MVJ2hvqHzlC/FsmfVTYi8cPWUbqHrVJKKaX8V59yOcdT9n9lFgAAAABJRU5ErkJggg==' : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAtElEQVR4nO3YPQrCQBRF4VPpfiytLSyMC1BSGLNVK7GwcQFWgrV/hUYCU4hoIYGY+7gfvAUcZpiZBMzMzMzMOmgIbNKMELYDqjQ3IEPU/iVEOmYG3D/ETBC0+BIzRZBj1FYmQ5BjfpEDx7elb3MuwJiGesD5jxFVmmvTe6YPnCKE1ObAQX1rtamI8HQpItwlS0d0RBnhBVxGiMiBh/rpFOpTdxshojYAVsBa/XeQmZmZmaHlCeC06ncEGe4qAAAAAElFTkSuQmCC'}`} /></button>
+                <section className={`px-10 pt-7 ${openMenu ? 'w-[85%] ml-[20%]' : 'w-full'} ${openMenu ? '' : 'px-28'}`}>
+                    <button id="closemenu" onClick={toggleMenu} className="cursor-pointer fixed left-2 top-0"><img src={`${openMenu ? 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABAElEQVR4nO3YMStGYRQH8OOKgYFJycxnYTHL++7KB6BMisHHsChmZVVGZWSwGH0FCT8p5brZ3nrfznV+9ay3/6nnPs85T0QppZRSyuRhBac4RhOZYBmPfqxHFljCfSv8C1YjAyzirhX+FZuRARZw2wr/hq3IAPO4aYV/xzAywByuW+E/sBMZYBZXnfC7kQFmcOm3vcgA0zjvhD+IROHPOuEPIwM03+1B2xP2x7SGmBqlgK8PTNpglAIG2Qto/thCzzgZ09oeaQul/4k7RVykPEY7t3DOi6wXrUQvmrletNO9GGh6MVJ2hvqHzlC/FsmfVTYi8cPWUbqHrVJKKaX8V59yOcdT9n9lFgAAAABJRU5ErkJggg==' : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAtElEQVR4nO3YPQrCQBRF4VPpfiytLSyMC1BSGLNVK7GwcQFWgrV/hUYCU4hoIYGY+7gfvAUcZpiZBMzMzMzMOmgIbNKMELYDqjQ3IEPU/iVEOmYG3D/ETBC0+BIzRZBj1FYmQ5BjfpEDx7elb3MuwJiGesD5jxFVmmvTe6YPnCKE1ObAQX1rtamI8HQpItwlS0d0RBnhBVxGiMiBh/rpFOpTdxshojYAVsBa/XeQmZmZmaHlCeC06ncEGe4qAAAAAElFTkSuQmCC'}`} /></button>
                     <div className="flex justify-between pb-7">
                         <Routes>
                             <Route
