@@ -41,10 +41,6 @@ class EvaluacionController extends Controller
 
 
             $evaluacion = new Evaluacion();
-
-            $evaluacion->logica = $request->logica;
-            $evaluacion->razonamiento = $request->razonamiento;
-            $evaluacion->aptitud = $request->aptitud;
             $evaluacion->id_estudiante = $request->id_estudiante;
             $evaluacion->id_evaluador = $request->id_evaluador;
 
@@ -79,10 +75,6 @@ class EvaluacionController extends Controller
 
             // $request->validate(Docente::rules(), ['nombre.required' => 'El nombre es requerido']);
             $evaluacion = Evaluacion::find($id);
-
-            $evaluacion->logica = $request->logica;
-            $evaluacion->razonamiento = $request->razonamiento;
-            $evaluacion->aptitud = $request->aptitud;
             $evaluacion->id_estudiante = $request->id_estudiante;
             $evaluacion->id_evaluador = $request->id_evaluador;
 

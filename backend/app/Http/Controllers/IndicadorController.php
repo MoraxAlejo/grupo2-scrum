@@ -22,6 +22,9 @@ class IndicadorController extends Controller
     public function store(Request $request)
     {
         $indicador = new Indicador();
+        $indicador->logica = $request->logica;
+        $indicador->razonamiento = $request->razonamiento;
+        $indicador->aptitud = $request->aptitud;
         $indicador->asistencia_Clase = $request->asistencia_Clase;
         $indicador->trabajos_Presentados = $request->trabajos_Presentados;
         $indicador->evaluaciones = $request->evaluaciones;
@@ -39,6 +42,9 @@ class IndicadorController extends Controller
     public function edit($id, Request $request)
     {
         $indicador = Indicador::find($id);
+        $indicador->logica = $request->logica;
+        $indicador->razonamiento = $request->razonamiento;
+        $indicador->aptitud = $request->aptitud;
         $indicador->asistencia_Clase = $request->asistencia_Clase;
         $indicador->trabajos_Presentados = $request->trabajos_Presentados;
         $indicador->evaluaciones = $request->evaluaciones;

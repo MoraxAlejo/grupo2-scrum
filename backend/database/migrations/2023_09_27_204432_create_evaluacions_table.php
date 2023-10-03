@@ -15,9 +15,6 @@ return new class extends Migration
     {
         Schema::create('evaluacions', function (Blueprint $table) {
             $table->id();
-            $table->string('logica');
-            $table->string('razonamiento');
-            $table->string('aptitud');
             $table->foreignId('id_estudiante')->constrained(table: 'estudiantes')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('id_evaluador')->constrained(table: 'evaluadors')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
