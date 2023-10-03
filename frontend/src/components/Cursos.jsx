@@ -3,8 +3,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-
-
 export default function Cursos({ datos }) {
   const [dataEstudiante, setDataEstudiante] = useState([]);
 
@@ -80,7 +78,7 @@ export default function Cursos({ datos }) {
                 <td className="px-6 py-4">{el.grupo}</td>
                 <td className="px-6 py-4">
                   <div>
-                    <Link to={"/cursos/evaluacion"}> <button  className="bg-transparent border border-white text-white font-bold py-0.5 px-1 rounded-full text-xs hover:bg-white hover:text-blue-500">
+                    <Link to={`/cursos/evaluacion/${el.id}`}> <button  className="bg-transparent border border-white text-white font-bold py-0.5 px-1 rounded-full text-xs hover:bg-white hover:text-blue-500">
                       Evaluar 
                     </button></Link>
                   </div>
