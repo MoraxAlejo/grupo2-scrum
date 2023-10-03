@@ -20,19 +20,18 @@ export default function New() {
         event.preventDefault();
   
         const evaluacion = {
-        nombre_de_evalucion: nombre_de_evalucion.current.value,
+        nombre_de_evaluacion: nombre_de_evalucion.current.value,
         descripcion: descripcion.current.value,
         logica: logica.current.value,
         razonamiento: razonamiento.current.value,
         aptitud: aptitud.current.value,
         asistencia_a_clases: asistencia_a_clases.current.value,
         trabajos_presentados: trabajos_presentados.current.value,
-        evaluciones: evaluciones.current.value,
+        evaluaciones: evaluciones.current.value,
         id_evaluador: id_evaluador.current,
+        id_estudiante: 3
     };
   
-  console.log(evaluacion);
-
       await createEval(evaluacion);
       navigate("/");
     };
