@@ -18,7 +18,10 @@ class EvaluacionController extends Controller
     public function index()
     {
         $evaluacion = new Evaluacion();
-        return $evaluacion->all();
+         $detalle = new Detalle_evaluacion();
+        return $evaluacion.$detalle->all();
+       
+       
     }
 
     /**
