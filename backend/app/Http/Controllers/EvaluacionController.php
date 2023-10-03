@@ -38,14 +38,25 @@ class EvaluacionController extends Controller
     public function store(Request $request)
     {
         try {
-
+            $request->validate([
+                'id_estudiante' => 'required|integer',
+                'nombre_de_evaluacion' => 'required|string',
+                'descripcion' => 'required|string',
+                'logica' => 'required|string',
+                'razonamiento' => 'required|string',
+                'aptitud' => 'required|string',
+                'asistencia_a_clases' => 'required|integer',
+                'trabajos_presentados' => 'required|integer',
+                'evaluaciones' => 'required|integer',
+            ]);
 
             $evaluacion = new Evaluacion();
             $evaluacion->id_estudiante = $request->id_estudiante;
             $evaluacion->id_evaluador = $request->id_evaluador;
 
-            $evaluacion->save();
-            return  $evaluacion;
+            return $request;
+            // $evaluacion->save();
+            // return  $evaluacion;
         } catch (Exception $e) {
             return json_encode($e);
         }
