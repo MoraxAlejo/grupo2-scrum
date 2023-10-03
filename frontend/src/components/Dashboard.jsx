@@ -90,7 +90,7 @@ export default function Dashboard() {
                             />
 
                             <Route
-                                path="/cursos/evaluacion"
+                                path="/cursos/evaluacion/:id"
                                 element={
                                     <h1 className="text-4xl">Evaluacion</h1>
                                 }
@@ -109,7 +109,7 @@ export default function Dashboard() {
                             </div>}
                         />
                         <Route path="/cursos" element={<Cursos datos={datos} />} />
-                        <Route path="/cursos/evaluacion" element={<Evaluacion />} />
+                        <Route path="/cursos/evaluacion/:id" element={<Evaluacion />} />
                         <Route path="/new" element={<New />} />
                     </Routes>
                 </section>
