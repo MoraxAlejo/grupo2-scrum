@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Detalle_evaluacion;
 use App\Models\Evaluacion;
+use App\Models\Indicador;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -39,7 +41,8 @@ class EvaluacionController extends Controller
     {
         try {
             $request->validate([
-                'id_estudiante' => 'required|integer',
+                'id_estudiante' => 'required|integer|exists:estudiantes,id',
+                'id_evaluador' => 'required|integer|exists:evaluadors,id',
                 'nombre_de_evaluacion' => 'required|string',
                 'descripcion' => 'required|string',
                 'logica' => 'required|string',
@@ -50,13 +53,29 @@ class EvaluacionController extends Controller
                 'evaluaciones' => 'required|integer',
             ]);
 
+
             $evaluacion = new Evaluacion();
             $evaluacion->id_estudiante = $request->id_estudiante;
             $evaluacion->id_evaluador = $request->id_evaluador;
+            $evaluacion->save();
 
-            return $request;
-            // $evaluacion->save();
-            // return  $evaluacion;
+            $indicador = new Indicador();
+            $indicador->logica = $request->logica;
+            $indicador->razonamiento = $request->razonamiento;
+            $indicador->aptitud = $request->aptitud;
+            $indicador->asistencia_Clase = $request->asistencia_a_clases;
+            $indicador->trabajos_Presentados = $request->trabajos_presentados;
+            $indicador->evaluaciones = $request->evaluaciones;
+            $indicador->save();
+
+            $detalleEvaluacion = new Detalle_evaluacion();
+            $detalleEvaluacion->nombre_evaluacion = $request->nombre_de_evaluacion;
+            $detalleEvaluacion->descripcion = $request->descripcion;
+            $detalleEvaluacion->id_evaluacion = $evaluacion->id;
+            $detalleEvaluacion->id_indicador = $indicador->id;
+            $detalleEvaluacion->save();
+
+            return $evaluacion;
         } catch (Exception $e) {
             return json_encode($e);
         }
