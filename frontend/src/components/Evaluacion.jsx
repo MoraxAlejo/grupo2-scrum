@@ -14,12 +14,12 @@ export default function New() {
     const asistencia_a_clases = useRef(null);
     const trabajos_presentados = useRef(null);
     const evaluciones = useRef(null);
-    const id_evaluador = useRef(null);
-  
+    const id_evaluador = useRef(2);
+    
     const test = async (event) => {
-      event.preventDefault();
+        event.preventDefault();
   
-      const evalucion = {
+        const evaluacion = {
         nombre_de_evalucion: nombre_de_evalucion.current.value,
         descripcion: descripcion.current.value,
         logica: logica.current.value,
@@ -28,11 +28,12 @@ export default function New() {
         asistencia_a_clases: asistencia_a_clases.current.value,
         trabajos_presentados: trabajos_presentados.current.value,
         evaluciones: evaluciones.current.value,
-        id_evaluador: id_evaluador.current.value = 2
+        id_evaluador: id_evaluador.current,
     };
-    console.log(evalucion);
   
-      await createEval(evalucion);
+  console.log(evaluacion);
+
+      await createEval(evaluacion);
       navigate("/");
     };
     return (
