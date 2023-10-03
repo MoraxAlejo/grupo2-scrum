@@ -2,9 +2,11 @@ import "/css/evaluacion.css"
 import "/css/bg.css"
 import { useRef } from "react";
 import { createEval } from "../../api/scrum-api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function New() {
+    const { id } = useParams();
+
     const navigate = useNavigate();
     const nombre_de_evalucion = useRef(null);
     const descripcion = useRef(null);
@@ -29,7 +31,7 @@ export default function New() {
         trabajos_presentados: trabajos_presentados.current.value,
         evaluaciones: evaluciones.current.value,
         id_evaluador: id_evaluador.current,
-        id_estudiante: 3
+        id_estudiante: id,
     };
   
       await createEval(evaluacion);
